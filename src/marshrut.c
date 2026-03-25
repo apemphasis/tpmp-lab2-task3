@@ -99,3 +99,35 @@ int find_max_length(const struct MARSHRUT *routes, int size)
     
     return max_index;
 }
+
+
+/*
+Функция sort_by_number
+Сортирует массив маршрутов по возрастанию номеров
+ */
+void sort_by_number(struct MARSHRUT *routes, int size)
+{
+    struct MARSHRUT temp;
+    int             i, j;
+    int             swapped;
+    
+    if (size <= 1) {
+        return; 
+    }
+    
+    for (i = 0; i < size - 1; i++) {
+        swapped = 0;
+        for (j = 0; j < size - i - 1; j++) {
+            if (routes[j].number > routes[j + 1].number) {
+                temp = routes[j];
+                routes[j] = routes[j + 1];
+                routes[j + 1] = temp;
+                swapped = 1;
+            }
+        }
+       
+        if (!swapped) {
+            break;
+        }
+    }
+}
