@@ -16,6 +16,7 @@ int main(void) {
     int               current_size;
     int               choice;
     bool              defined = false;
+    int               max_index;
     
     printf("Программа для работы с маршрутами\n");
     
@@ -23,6 +24,7 @@ int main(void) {
         printf("\nМеню:\n");
         printf("1. Создать массив маршрутов\n");
         printf("2. Вывести все маршруты\n");
+        printf("3. Найти маршрут с максимальной длиной\n");
         printf("0. Выход\n");
         printf("Выберите действие: ");
         scanf("%d", &choice);
@@ -44,6 +46,20 @@ int main(void) {
                     print_array(routes, current_size);
                 } else {
                     printf("Маршруты не заданы\n");
+                }
+                break;
+
+            case 3:
+                max_index = find_max_length(routes, current_size);
+                if (max_index == -1) {
+                    printf("Массив маршрутов пуст. Сначала создайте маршруты.\n");
+                } else {
+                    printf("\nМаршрут с максимальной длиной:\n");
+                    printf("==============================\n");
+                    printf("Номер:         %d\n", routes[max_index].number);
+                    printf("Начальный пункт: %s\n", routes[max_index].start);
+                    printf("Конечный пункт:  %s\n", routes[max_index].end);
+                    printf("Длина:         %.2f\n", routes[max_index].distance);
                 }
                 break;
 
