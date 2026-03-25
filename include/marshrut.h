@@ -46,4 +46,15 @@ struct MARSHRUT {
 */
 int create_array(struct MARSHRUT *routes, int max_size);
 
+
+/*
+Функция print_marshruts_array
+Выводит содержимое массива маршрутов на экран
+ 
+Параметры:
+  routes - указатель на массив структур MARSHRUT
+  size - количество элементов в массиве
+*/
+void print_array(const struct MARSHRUT *routes, int size);
+
 #endif
