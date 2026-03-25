@@ -131,3 +131,23 @@ void sort_by_number(struct MARSHRUT *routes, int size)
         }
     }
 }
+
+/*
+Функция find_marshruts_by_point
+Находит индексы маршрутов, которые начинаются или заканчиваются в заданном пункте
+ */
+int find_marshruts_by_point(const struct MARSHRUT *routes, int size, const char *point, int *indices)
+{
+    int count;
+    int i;
+    
+    count = 0;
+    for (i = 0; i < size; i++) {
+        if (strcmp(routes[i].start, point) == 0 || strcmp(routes[i].end, point) == 0) {
+            indices[count] = i;
+            count++;
+        }
+    }
+    
+    return count;
+}
