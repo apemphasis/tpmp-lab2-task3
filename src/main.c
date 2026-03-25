@@ -73,6 +73,35 @@ int main(void) {
                 }
                 break;
 
+            case 5:
+                if (!defined) {
+                    printf("Массив маршрутов пуст. Сначала создайте маршруты.\n");
+                } else {
+                    printf("Введите название пункта для поиска: ");
+                    char* search_point;
+                    fgets(search_point, MAX_NAME_LEN, stdin);
+                    search_point[strcspn(search_point, "\n")] = '\0';  
+                    int found_count;
+                    int* found_indices;
+                    found_count = find_marshruts_by_point(routes, current_size, search_point, found_indices);
+                    
+                    if (found_count == 0) {
+                        printf("Маршруты, начинающиеся или заканчивающиеся в пункте '%s', не найдены.\n", search_point);
+                    } else {
+                        printf("\nНайдено %d маршрут(ов), которые начинаются или заканчиваются в пункте '%s':\n", found_count, search_point);
+                        printf("========================================================\n");
+                        for (int i = 0; i < found_count; i++) {
+                            printf("\nМаршрут #%d:\n", found_indices[i] + 1);
+                            printf("  Номер:         %d\n", routes[found_indices[i]].number);
+                            printf("  Начальный пункт: %s\n", routes[found_indices[i]].start);
+                            printf("  Конечный пункт:  %s\n", routes[found_indices[i]].end);
+                            printf("  Длина:         %.2f\n", routes[found_indices[i]].distance);
+                            printf("----------------------\n");
+                        }
+                    }
+                }
+                break;
+
             case 0:
                 printf("Программа завершена.\n");
                 break;
