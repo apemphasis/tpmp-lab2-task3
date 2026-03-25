@@ -20,6 +20,7 @@ int main(void) {
     do {
         printf("\nМеню:\n");
         printf("1. Создать массив маршрутов\n");
+        printf("2. Вывести все маршруты\n");
         printf("0. Выход\n");
         printf("Выберите действие: ");
         scanf("%d", &choice);
@@ -32,6 +33,11 @@ int main(void) {
                     printf("Создано %d маршрутов.\n", current_size);
                 }
                 break;
+
+            case 2:
+                print_marshruts_array(routes, current_size);
+                break;
+
             case 0:
                 printf("Программа завершена.\n");
                 break;
