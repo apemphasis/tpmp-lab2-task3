@@ -70,4 +70,14 @@ void print_array(const struct MARSHRUT *routes, int size);
   int - индекс маршрута с максимальной длиной, или -1 если массив пуст
  */
 int find_max_length(const struct MARSHRUT *routes, int size);
+
+/*
+Функция sort_by_number
+Сортирует массив маршрутов по возрастанию номеров
+
+Параметры:
+  routes - указатель на массив структур MARSHRUT
+  size - количество элементов в массиве
+ */
+void sort_by_number(struct MARSHRUT *routes, int size);
 #endif
