@@ -35,7 +35,7 @@ int main(void) {
                 break;
 
             case 2:
-                print_marshruts_array(routes, current_size);
+                print_array(routes, current_size);
                 break;
 
             case 0:
