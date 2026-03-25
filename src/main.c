@@ -51,10 +51,10 @@ int main(void) {
                 break;
 
             case 3:
-                max_index = find_max_length(routes, current_size);
-                if (max_index == -1) {
+                if (!defined) {
                     printf("Массив маршрутов пуст. Сначала создайте маршруты.\n");
                 } else {
+                    max_index = find_max_length(routes, current_size);
                     printf("\nМаршрут с максимальной длиной:\n");
                     printf("==============================\n");
                     printf("Номер:         %d\n", routes[max_index].number);
@@ -65,7 +65,7 @@ int main(void) {
                 break;
 
             case 4:
-                if (current_size <= 0) {
+                if (!defined) {
                     printf("Массив маршрутов пуст. Сначала создайте маршруты.\n");
                 } else {
                     sort_by_number(routes, current_size);
