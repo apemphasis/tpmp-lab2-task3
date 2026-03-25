@@ -9,6 +9,7 @@ Yauheni Kazlouski
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 #include "marshrut.h"
 
 int main(void) {
@@ -79,11 +80,11 @@ int main(void) {
                     printf("Массив маршрутов пуст. Сначала создайте маршруты.\n");
                 } else {
                     printf("Введите название пункта для поиска: ");
-                    char* search_point;
+                    char    search_point[MAX_NAME_LEN];
                     fgets(search_point, MAX_NAME_LEN, stdin);
                     search_point[strcspn(search_point, "\n")] = '\0';  
                     int found_count;
-                    int* found_indices;
+                    int found_indices[current_size];
                     found_count = find_marshruts_by_point(routes, current_size, search_point, found_indices);
                     
                     if (found_count == 0) {
