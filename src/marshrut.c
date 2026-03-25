@@ -76,3 +76,26 @@ void print_array(const struct MARSHRUT *routes, int size)
         printf("----------------------\n");
     }
 }
+
+/*
+Функция find_max_length
+Находит индекс маршрута с максимальной длиной
+*/
+int find_max_length(const struct MARSHRUT *routes, int size)
+{
+    int     max_index;
+    int     i;
+    
+    if (size <= 0) {
+        return -1;
+    }
+    
+    max_index = 0;
+    for (i = 1; i < size; i++) {
+        if (routes[i].distance > routes[max_index].distance) {
+            max_index = i;
+        }
+    }
+    
+    return max_index;
+}
