@@ -57,4 +57,17 @@ int create_array(struct MARSHRUT *routes, int max_size);
 */
 void print_array(const struct MARSHRUT *routes, int size);
 
+
+/*
+Функция find_max_length
+Находит индекс маршрута с максимальной длиной
+
+Параметры:
+  routes - указатель на массив структур MARSHRUT
+  size - количество элементов в массиве
+
+Возвращает:
+  int - индекс маршрута с максимальной длиной, или -1 если массив пуст
+ */
+int find_max_length(const struct MARSHRUT *routes, int size);
 #endif
