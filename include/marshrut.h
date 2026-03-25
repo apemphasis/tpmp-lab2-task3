@@ -80,4 +80,19 @@ int find_max_length(const struct MARSHRUT *routes, int size);
   size - количество элементов в массиве
  */
 void sort_by_number(struct MARSHRUT *routes, int size);
+
+/*
+Функция find_marshruts_by_point
+Находит индексы маршрутов, которые начинаются или заканчиваются в заданном пункте
+
+Параметры:
+  routes - указатель на массив структур MARSHRUT
+  size - количество элементов в массиве
+  point - указатель на строку с названием пункта
+  indices - указатель на массив для сохранения индексов найденных маршрутов
+
+Возвращает:
+  int - количество найденных маршрутов (0, если не найдено или массив пуст)
+ */
+int find_marshruts_by_point(const struct MARSHRUT *routes, int size, const char *point, int *indices);
 #endif
