@@ -49,3 +49,30 @@ int create_array(struct MARSHRUT *routes, int max_size) {
     
     return count;
 }
+
+
+/*
+Функция print_array
+Выводит массив маршрутов на экран
+*/
+void print_array(const struct MARSHRUT *routes, int size)
+{
+    int i;
+    
+    if (size <= 0) {
+        printf("Массив маршрутов пуст.\n");
+        return;
+    }
+    
+    printf("\nСписок всех маршрутов:\n");
+    printf("======================\n");
+    
+    for (i = 0; i < size; i++) {
+        printf("\nМаршрут #%d:\n", i + 1);
+        printf("  Номер:         %d\n", routes[i].number);
+        printf("  Начальный пункт: %s\n", routes[i].start);
+        printf("  Конечный пункт:  %s\n", routes[i].end);
+        printf("  Длина:         %.2f\n", routes[i].distance);
+        printf("----------------------\n");
+    }
+}

@@ -48,7 +48,7 @@ int create_array(struct MARSHRUT *routes, int max_size);
 
 
 /*
-Функция print_marshruts_array
+Функция print_array
 Выводит содержимое массива маршрутов на экран
  
 Параметры:
