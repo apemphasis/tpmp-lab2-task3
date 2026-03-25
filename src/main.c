@@ -8,12 +8,14 @@ Yauheni Kazlouski
 */
 
 #include <stdio.h>
+#include <stdbool.h>
 #include "marshrut.h"
 
 int main(void) {
     struct MARSHRUT   routes[MAX_MARSHUTS];
     int               current_size;
     int               choice;
+    bool              defined = false;
     
     printf("Программа для работы с маршрутами\n");
     
@@ -31,11 +33,18 @@ int main(void) {
                 current_size = create_array(routes, MAX_MARSHUTS);
                 if (current_size > 0) {
                     printf("Создано %d маршрутов.\n", current_size);
+                    if (!defined) {
+                        defined = true;
+                    }
                 }
                 break;
 
             case 2:
-                print_array(routes, current_size);
+                if (defined) {
+                    print_array(routes, current_size);
+                } else {
+                    printf("Маршруты не заданы\n");
+                }
                 break;
 
             case 0:
